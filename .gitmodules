@@ -1,3 +1,6 @@
 [submodule "week-3-web-app-workshop-KippaK"]
 	path = week-3-web-app-workshop-KippaK
 	url = git@github.com:5G00EV16-3004/week-3-web-app-workshop-KippaK.git
+[submodule "2025-my-diner-KippaK"]
+	path = 2025-my-diner-KippaK
+	url = git@github.com:5G00EV16-3004/2025-my-diner-KippaK.git
