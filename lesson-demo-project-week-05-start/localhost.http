@@ -1,0 +1,5 @@
+GET http://localhost:5001/api/cities
+
+###
+
+GET http://localhost:5001/api/cities/2

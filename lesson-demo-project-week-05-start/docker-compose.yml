@@ -1,0 +1,22 @@
+services:
+  db:
+    image: postgres:17-alpine
+    restart: always
+    environment:
+      #POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: cities_password
+      POSTGRES_DB: cities_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - pg_data:/var/lib/postgres/data/
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+
+volumes:
+  pg_data:
