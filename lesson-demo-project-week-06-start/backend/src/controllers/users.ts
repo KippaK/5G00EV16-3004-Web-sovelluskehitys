@@ -8,26 +8,21 @@ import { config } from '../config/config';
 import { equal } from 'assert';
 
 const signUpUser = async (req: Request, res: Response, next: NextFunction) => {
-    console.log("log")
     const validatedUserData = signupUserSchema.parse(req.body)
 
-    console.log("log")
     const exists = await findUserByEmail(validatedUserData.email)
 
-    console.log("log")
     if (exists) {
         res.status(400).json({ message: 'User exists' })
         return
     }
 
-    console.log("log")
     let hashedPassword;    
     try {
         hashedPassword = await bcrypt.hash(validatedUserData.password, 12);
     } catch (error) {
         res.status(500).json({ message: 'Could not create user, try again' })
     }
-    console.log("log")
     const newUser: UserCreateRequest = {
         id: v4(),
         name: validatedUserData.name,
@@ -35,16 +30,13 @@ const signUpUser = async (req: Request, res: Response, next: NextFunction) => {
         password: hashedPassword!
     }
 
-    console.log("log")
     try {
         const userData = await createUser(newUser)
 
-        console.log("log")
         if (!userData) {
             res.status(500).json({ message: 'Could not create user, try again' })
         }
 
-        console.log("log")
         const token = jwt.sign(
             {
                 id: userData.id,
@@ -57,12 +49,10 @@ const signUpUser = async (req: Request, res: Response, next: NextFunction) => {
 
         )
 
-        console.log("log")
         res.status(201).json({
             id: userData.id,
             token
         })
-        console.log("log")
     } catch (error) {
         res.status(500).json({ message: 'Could not create user, try again' })
     }
@@ -94,7 +84,7 @@ const loginUser = async (req: Request, res: Response, next: NextFunction) => {
 
         )
 
-        res.status(200).json({
+        res.status(201).json({
             id: user.id,
             token
         })
