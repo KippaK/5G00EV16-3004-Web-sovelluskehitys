@@ -4,3 +4,6 @@
 [submodule "2025-my-diner-KippaK"]
 	path = 2025-my-diner-KippaK
 	url = git@github.com:5G00EV16-3004/2025-my-diner-KippaK.git
+[submodule "2025-final-project-KippaK"]
+	path = 2025-final-project-KippaK
+	url = git@github.com:5G00EV16-3004/2025-final-project-KippaK.git
