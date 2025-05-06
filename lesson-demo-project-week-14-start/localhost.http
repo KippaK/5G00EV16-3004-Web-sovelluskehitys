@@ -1,0 +1,66 @@
+GET http://localhost:5001/api/cities
+
+###
+
+GET http://localhost:5001/api/cities/3
+
+###
+POST http://localhost:5001/api/cities
+Content-Type: application/json
+Authorization: BEARER {{authToken}}
+
+{
+  "capital": "Mumbai",
+  "country": "India",
+  "image": "Mumbai.png"
+}
+
+###
+POST http://localhost:5001/api/cities
+Content-Type: application/json
+Authorization: BEARER {{authToken}}
+
+{
+  "capital": "Nice",
+  "country": "France",
+  "image": "Paris.png"
+}
+
+###
+PUT http://localhost:5001/api/cities
+Content-Type: application/json
+Authorization: BEARER {{authToken}}
+
+{
+  "id": 6,
+  "capital": "Paris",
+  "country": "France",
+  "image": "Paris.png"
+}
+
+###
+DELETE http://localhost:5001/api/cities/7
+Authorization: BEARER {{authToken}}
+
+###
+POST http://localhost:5001/api/users/signup
+Content-Type: application/json
+
+{
+  "name": "John Smith",
+  "email": "john@smith.com",
+  "password": "something"
+}
+
+###
+# @name login
+POST http://localhost:5001/api/users/login
+Content-Type: application/json
+
+{
+  "email": "john@smith.com",
+  "password": "something"
+}
+
+###
+@authToken = {{login.response.body.token}}

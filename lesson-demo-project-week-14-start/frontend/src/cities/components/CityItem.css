@@ -1,0 +1,50 @@
+/*CityItem.css*/
+.city-item {
+  margin: 1rem 0;
+}
+
+.city-item__content {
+  padding: 0;
+}
+
+.city-item__info {
+  padding: 1rem;
+  text-align: center;
+}
+
+.city-item__image {
+  width: 100%;
+  height: 12.5rem;
+  margin-right: 1.5rem;
+}
+
+.city-item__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.city-item__actions {
+  padding: 1rem;
+  text-align: center;
+  border-top: 1px solid #ccc;
+}
+
+.city-item__modal-content {
+  padding: 0;
+}
+
+.city-item__modal-actions {
+  text-align: right;
+}
+
+.city-item__actions button,
+.city-item__actions a {
+  margin: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .city-item__image {
+    height: 20rem;
+  } 
+}

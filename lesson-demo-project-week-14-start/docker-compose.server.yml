@@ -1,0 +1,35 @@
+services:
+  backend:
+    image: ${BACKEND_IMAGE}
+    ports:
+      - "5000:5001"
+    env_file:
+      - .env
+    restart: always
+  frontend: 
+    image: ${FRONTEND_IMAGE}
+    ports:
+      - "80:80"
+    env_file:
+      - .env
+    restart: always
+  db:
+    image: postgres:17-alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_DATABASE}
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db/init.prod.sql:/docker-entrypoint-initdb.d/init.prod.sql
+      - pg_data:/var/lib/postgres/data/
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8088:8080"
+
+volumes:
+  pg_data:
